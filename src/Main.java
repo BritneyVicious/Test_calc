@@ -2,13 +2,16 @@ import java.io.IOException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
+        Scanner input = new Scanner(System.in);
+        String s = input.nextLine();
+        calc(s);
+    }
+    public static String calc(String input) throws IOException {
         int i = 0;
         int first;
         int second;
         int signInd;
-        Scanner input = new Scanner(System.in);
-        String s = input.nextLine();
-        char[] digits = s.toCharArray();
+        char[] digits = input.toCharArray();
         if (digits[0] == '1' && digits[1] == '0') {
             first = 10;
             i = i + 2;
@@ -27,7 +30,7 @@ public class Main {
 
         if (digits.length - i == 4) {
             if (digits[i + 2] == '1' && digits[i + 3] == '0') second = 10;
-                else throw new IOException();
+            else throw new IOException();
         }
         else if (digits.length - i == 3){
             if (digits[i + 2] <= '0' || digits[i + 2] > '9') {
@@ -51,5 +54,6 @@ public class Main {
                 break;
             default: throw new IOException();
         }
+        return input;
     }
 }
